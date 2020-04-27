@@ -37,13 +37,26 @@
     <!--  DATA ACCESS CONFIGURATION -->
     <!-- ************************* -->
 
+	
+	<!-- Use this to run local -->
+	<!-- 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="jdbc:postgresql://localhost:5432/module3assessment" />
 		<property name="username" value="postgres" />
 		<property name="password" value="postgres1" />
 	</bean>
-
+	 -->
+	
+	<!-- Use this to run on Heroku -->	
+	<!--  postgres://loekkvausjzkqz:70e5045196dc7f9bd91e1c0f04e70b96911d4857c8470685c0944f246f13d130@ec2-52-207-25-133.compute-1.amazonaws.com:5432/dfgmjlk5jn4hru -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://ec2-52-207-25-133.compute-1.amazonaws.com:5432/dfgmjlk5jn4hru" />
+		<property name="username" value="loekkvausjzkqz" />
+		<property name="password" value="70e5045196dc7f9bd91e1c0f04e70b96911d4857c8470685c0944f246f13d130" />
+	</bean>	
+	 
     <!-- enable the configuration of transactional behavior based on annotations -->
     <!--
     <tx:annotation-driven transaction-manager="txManager"/>

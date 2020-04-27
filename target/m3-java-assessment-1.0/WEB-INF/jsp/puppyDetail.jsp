@@ -13,13 +13,20 @@
 		<h1>${puppy.name}
 			<small>${puppy.gender}</small>
 		</h1>
-		<p>${puppy.name} is a wonderful dog who weighs ${puppy.weight} lbs
-			and is ${puppy.paperTrained ? '' : ' NOT '} paper trained.</p>
+		<p>
+			${puppy.name} is a wonderful dog who weighs ${puppy.weight} ${puppy.weight == 1 ? 'lb' : 'lbs'}			
+			and is ${puppy.paperTrained ? '' : ' NOT '} paper trained.
+		</p>
 	</c:otherwise>
 </c:choose>
 
-<p>
-	<a href="puppyList">Click here to return to the list of puppies.</a>
+<p>	
+	<!-- Use this for local -->
+	<!-- 
+	<a href="/m3-java-assessment">Click here to return to the list of puppies.</a>
+	-->
+	<!-- Use this for Heroku -->
+	<a href="/">Click here to return to the list of puppies.</a>
 </p>
 
 <%@include file="common/footer.jspf"%>

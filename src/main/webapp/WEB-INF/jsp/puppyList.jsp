@@ -18,25 +18,9 @@
 	<c:forEach items="${puppies}" var="puppy">
 		<tr>
 			<td><a href="puppy?id=${puppy.id}">${puppy.name}</a></td>
-			<td>${puppy.weight} 
-			<c:choose>
-			<c:when test="${puppy.weight == 1 }">
-			lb
-			</c:when>
-			<c:otherwise>
-			lbs
-			</c:otherwise>
-			</c:choose>
-			</td>
+			<td>${puppy.weight} ${puppy.weight == 1 ? 'lb' : 'lbs'}</td>
 			<td>${puppy.gender}</td>
-			<td><c:choose>
-					<c:when test="${puppy.paperTrained == 'true'}">
-						Yes
-					</c:when>
-					<c:otherwise>
-						No		
-					</c:otherwise>
-				</c:choose></td>
+			<td>${puppy.paperTrained ? 'Yes' : 'No'}</td>
 		</tr>
 	</c:forEach>
 
@@ -52,7 +36,7 @@
 		</div>
 		<div class="form-group">
 			<input type="number" class="form-control" name="weight"
-				placeholder="Weight" required>
+				placeholder="Weight" min="1" max="1000" required>
 		</div>
 		<div class="checkbox">
 			<label> <input type="radio" name="gender" value="Male"
